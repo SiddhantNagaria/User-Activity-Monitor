@@ -248,4 +248,4 @@ def login_window():
 
     # Customize styles
     style.configure("TLabel", background="#2E3440", foreground="#ECEFF4", font=("Arial", 12))
-    style.configure("TButton", background="#4C566
+    style.configure("TButton", background="#4C566")
