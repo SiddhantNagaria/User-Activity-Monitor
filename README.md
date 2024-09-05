@@ -27,8 +27,9 @@ The following libraries are required to run the project:
 - **pywin32:** For Windows-specific functions such as window title fetching and screenshot capturing.
 
 ## dependencies
-pip install cx_Freeze psutil Pillow pynput pywin32
+pip install hashlib json5 platform time psutil pillow pynput pywin32 cx_Freeze tkinter datetime threading
+
 pip install -U pip
 
 ## run the project
-python useractivitymonitor.py
+python user_activity_monitor.py
