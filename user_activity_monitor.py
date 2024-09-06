@@ -131,7 +131,8 @@ def signup_window():
             credentials[username] = hash_password(password)
             save_credentials(credentials)
             messagebox.showinfo("Success", "Account created successfully")
-            signup_win.destroy()
+            # signup_win.destroy()
+            open_login()
 
     def open_login():
         signup_win.destroy()
