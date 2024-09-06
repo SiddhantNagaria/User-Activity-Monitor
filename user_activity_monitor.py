@@ -6,7 +6,7 @@ import tkinter as tk
 from datetime import datetime
 from threading import Thread
 from tkinter import messagebox, ttk
-
+import os 
 import psutil
 from PIL import Image, ImageTk
 from pynput import keyboard, mouse
@@ -48,10 +48,24 @@ def fetch_active_window():
         return win32gui.GetWindowText(win32gui.GetForegroundWindow())
     return "Unknown"
 
+# Path to store screenshots
+SCREENSHOT_DIR = 'screenshots'
+
+# Create the screenshot directory if it doesn't exist
+if not os.path.exists(SCREENSHOT_DIR):
+    os.makedirs(SCREENSHOT_DIR)
+
 def capture_screenshot():
     if platform.system() == 'Windows':
         bbox = win32gui.GetWindowRect(win32gui.GetForegroundWindow())
-        return ImageGrab.grab(bbox)
+        img = ImageGrab.grab(bbox)
+        
+        # Save the screenshot
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        screenshot_path = os.path.join(SCREENSHOT_DIR, f"screenshot_{timestamp}.png")
+        img.save(screenshot_path)
+        
+        return img
     return None
 
 def monitor_activity():
